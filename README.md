@@ -1,4 +1,4 @@
-# Parameter-Optimization-for-MR-Finishing-of-curved-workpieces
+# Parameter-Optimization-for-MR-Finishing-of-curved-workpiece
 A MATLAB workflow for optimizing Magnetorheological (MR) finishing process parameters using Artificial Neural Networks (ANN), Principal Component Analysis (PCA), and data cleaning. This pipeline enables accurate prediction and optimization of surface roughness improvement with full transparency.
 
 Features:
