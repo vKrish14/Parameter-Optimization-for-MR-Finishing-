@@ -1,7 +1,7 @@
-# Parameter-Optimization-for-MR-Finishing
+# Parameter-Optimization-for-MR-Finishing-of-curved-workpieces
 A MATLAB workflow for optimizing Magnetorheological (MR) finishing process parameters using Artificial Neural Networks (ANN), Principal Component Analysis (PCA), and data cleaning. This pipeline enables accurate prediction and optimization of surface roughness improvement with full transparency.
 
-Features
+Features:
 
     Data Cleaning: Removes missing values, duplicates, and outliers (IQR-based).
 
@@ -17,13 +17,13 @@ Features
 
     Reproducibility: Results exported to Excel.
 
-Requirements
+Requirements:
 
     MATLAB R2018b or newer
 
     Statistics and Machine Learning Toolbox
 
-Usage
+Usage:
 
     Input Files:
     input.xlsx — columns: T, W, S (normalized, no header change)
@@ -40,7 +40,7 @@ Usage
 
         Results exported to ANN_fminsearch_Cleaned_IQR_PCA_Results.xlsx
 
-Plot Outputs
+Plot Outputs:
 
     Actual vs. Predicted Output
 
@@ -52,7 +52,7 @@ Plot Outputs
 
     Mean Squared Error vs. Epoch
 
-Example Output
+Example Output:
 
 text
 Best T: 0.745
@@ -64,6 +64,7 @@ Best S: 0.800
 Predicted Maximum Output: 0.993
 
 Results saved to ANN_fminsearch_Cleaned_IQR_PCA_Results.xlsx
+
 
 
 Citation
