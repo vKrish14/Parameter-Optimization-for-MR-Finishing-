@@ -54,7 +54,6 @@ Plot Outputs:
 
 Example Output:
 
-text
 Best T: 0.745
 
 Best W: 0.255
