@@ -1,92 +1,51 @@
 # Parameter-Optimization-for-MR-Finishing-
-A MATLAB workflow for optimizing Magnetorheological (MR) finishing process parameters using Artificial Neural Networks (ANNs), Principal Component Analysis (PCA), and robust data cleaning. This code achieves accurate prediction and optimization of surface roughness improvements, with comprehensive diagnostics and reproducibility.
-Overview
-
-This repository provides a full pipeline to:
-
-    Clean and preprocess experimental MR finishing data
-
-    Engineer features and apply dimensionality reduction (PCA)
-
-    Train a multi-layer ANN to predict surface roughness improvement
-
-    Optimize process parameters via numerical optimization (fminsearch)
-
-    Generate diagnostic plots and export results for transparency
-
+A MATLAB workflow for optimizing Magnetorheological (MR) finishing process parameters using Artificial Neural Networks (ANN), Principal Component Analysis (PCA), and robust data cleaning. This pipeline enables accurate prediction and optimization of surface roughness improvement with full diagnostics and transparency.
 Features
 
-    Data Cleaning: Removes missing values, duplicate rows, and statistical outliers (IQR-based) for dataset integrity.
+    Data Cleaning: Removes missing values, duplicates, and outliers (IQR-based).
 
-    Feature Engineering: Expands features with polynomial and interaction terms, reducing collinearity and increasing predictive power.
+    Feature Engineering: Polynomial and interaction terms expand input power.
 
-    Dimensionality Reduction: PCA retains the most informative input components, minimizing overfitting.
+    Dimensionality Reduction: PCA retains ≥95% variance.
 
-    ANN Architecture: Feedforward ANN with three hidden layers ([30,rained by scaled conjugate gradient (SCG) and early stopping for best correlation.
+    ANN: Three hidden layers ([30 20 10]), trained via scaled conjugate gradient with early stopping.
 
-    Optimization: Predicts and identifies optimal process parameters by maximizing model output.
+    Optimization: fminsearch finds parameters maximizing predicted output.
 
-    Comprehensive Diagnostics: Generates line and scatter plots, absolute error, residual analysis, and model learning curves.
+    Diagnostics: Generates plots (actual vs. predicted, error, residuals, MSE vs. epoch).
 
-    Results Export: All predictions and metrics saved to Excel for reproducibility.
+    Reproducibility: Results exported to Excel.
 
 Requirements
 
-    MATLAB R2018b or newer (recommended for Neural Network Toolbox compatibility)
+    MATLAB R2018b or newer
 
     Statistics and Machine Learning Toolbox
 
 Usage
 
-    Prepare Data
+    Input Files:
+    input.xlsx — columns: T, W, S (normalized, no header change)
+    output.xlsx — column: Percentage change
 
-        Ensure your experimental input data is in input.xlsx (columns: T, W, S, normalized to ).
+    Run the Script:
+    Open and run the MATLAB script in this repo.
 
-    Place your corresponding output data in output.xlsx (column: Percentage change).
+    View Output:
 
-Run the Script
+        Optimized parameters and output visible in MATLAB console
 
-    matlab
-    % Main script
-    MR_Finishing_ANN_Optimization.m
+        Diagnostic plots generated automatically
 
-    The script will:
-
-        Load and clean the provided .xlsx files
-
-        Engineer features and apply PCA
-
-        Train the ANN with multiple restarts for optimal R and MSE
-
-        Optimize process settings for maximal predicted improvement
-
-        Generate diagnostic plots
-
-        Save results to ANN_fminsearch_Cleaned_IQR_PCA_Results.xlsx
-
-    Interpret Results
-
-        Optimized parameters and maximum predicted output are displayed in the MATLAB console.
-
-        Diagnostic plots illustrate model accuracy and prediction confidence.
-
-        Full results (actual, predicted, errors) are available in the exported Excel file.
+        Results exported to ANN_fminsearch_Cleaned_IQR_PCA_Results.xlsx
 
 Plot Outputs
-
-The code automatically generates the following visuals for model interpretation:
 
     Actual vs. Predicted Output
 
     Absolute Error per Sample
 
-    Histogram of Residuals
-
-    Scatter: Actual vs. Predicted
-
-    Residuals vs. Predicted
-
-    Distribution of Actual Values
+    Residuals (histogram and scatter)
 
     Output vs. Target
 
@@ -95,30 +54,18 @@ The code automatically generates the following visuals for model interpretation:
 Example Output
 
 text
-=== OPTIMAL INPUTS FOR MAXIMUM "Percentage change" after Cleaning, IQR, PCA ===
-Best T (Tool rotation):      0.745
-Best W (Workpiece rotation): 0.255
-Best S (Feed rate):          0.800
-Predicted Maximum Output:    0.993
-========================================================
+Best T: 0.745
+Best W: 0.255
+Best S: 0.800
+Predicted Maximum Output: 0.993
 Results saved to ANN_fminsearch_Cleaned_IQR_PCA_Results.xlsx
-
-Customization
-
-    Update ANN architecture by editing the [30 20 10] vector in the code.
-
-    Adjust cleaning rules or PCA variance threshold as needed for your dataset.
-
-    Edit plotting sections to customize visualization style or outputs.
 
 Citation
 
-If you use this code for research or publication, please cite the corresponding article or acknowledge the methodology as:
+If you use this code, please cite as:
 
-    "Process parameter optimization for MR finishing using ANN surrogate modeling, PCA, and robust data cleaning, with full transparency and diagnostics."
+    "Parameter Optimization of Magnetorheological Finishing Using Machine Learning for Curved Surface "
 
-License
 
-This project is provided for academic and research use. For other uses, please request permission from the author.
-
-Contact: For questions or support, please open an issue or contact the repository maintainer.
+Academic/research use only.
+For other use, please contact the author.
